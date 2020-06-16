@@ -1,0 +1,25 @@
+#!/bin/bash
+
+# mkdir -p ~/.config/caja/scripts
+
+# echo "Text" | zenity --text-info --title="Title" --width=640 --height=480
+
+# if [ "${#}" -eq 0 ]; then
+#   zenity --notification --text="1"
+#   zenity --notification --text="${PWD}"
+# elif [[ "${#}" == 1 && -d "${1}" ]]; then
+#   zenity --notification --text="2"
+#   zenity --notification --text="${CAJA_SCRIPT_SELECTED_FILE_PATHS%$'\n'}"
+# else
+#   zenity --notification --text="3"
+#   for f in "${@}"; do
+#     zenity --notification --text="${PWD}/${f}"
+#   done
+# fi
+
+if [ "${#}" -eq 0 ]; then
+  mate-disk-usage-analyzer "${PWD}"
+elif [[ "${#}" == 1 && -d "${1}" ]]; then
+  mate-disk-usage-analyzer "${CAJA_SCRIPT_SELECTED_FILE_PATHS%$'\n'}"
+fi
+
