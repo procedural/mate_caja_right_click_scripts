@@ -1,0 +1,10 @@
+#!/bin/bash
+
+# sudo apt install xclip zenity
+
+if [[ $(xclip -o clipboard | tail -c 1) == '' ]]; then
+  zenity --notification --text=$(xclip -o clipboard | wc -l)
+else
+  zenity --notification --text=$((`xclip -o sel clip | wc -l`+1))
+fi
+
